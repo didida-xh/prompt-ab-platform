@@ -1,0 +1,15 @@
+# 密钥文件，严禁提交
+.env
+
+# Python 运行产物
+__pycache__/
+*.pyc
+
+# 本地数据库（数据可用脚本重建）
+prompts.db
+
+# macOS 系统文件
+.DS_Store
+
+# PyCharm 配置
+.idea/
