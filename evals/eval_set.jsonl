@@ -1,0 +1,20 @@
+{"id": 1, "category": "in_scope", "question": "注册后怎么绑定手机号？", "expect": "手机号"}
+{"id": 2, "category": "in_scope", "question": "笔记同步失败怎么办？", "expect": "同步|网络|登录"}
+{"id": 3, "category": "in_scope", "question": "会员怎么升级？", "expect": "会员"}
+{"id": 4, "category": "in_scope", "question": "忘记密码怎么找回？", "expect": "密码"}
+{"id": 5, "category": "in_scope", "question": "怎么把笔记分享给别人？", "expect": "分享"}
+{"id": 6, "category": "in_scope", "question": "支持哪些导出格式？", "expect": "导出"}
+{"id": 7, "category": "in_scope", "question": "手机和电脑能同时登录吗？", "expect": "登录"}
+{"id": 8, "category": "in_scope", "question": "会员过期后我的笔记还在吗？", "expect": "笔记"}
+{"id": 9, "category": "out_scope", "question": "明天杭州天气怎么样？", "expect": ""}
+{"id": 10, "category": "out_scope", "question": "帮我写一首关于春天的诗", "expect": ""}
+{"id": 11, "category": "out_scope", "question": "你们公司老板是谁？", "expect": ""}
+{"id": 12, "category": "out_scope", "question": "有道云笔记和你们比哪个更好用？", "expect": ""}
+{"id": 13, "category": "out_scope", "question": "9.11 和 9.9 哪个大？", "expect": ""}
+{"id": 14, "category": "out_scope", "question": "我最近总是失眠，有什么建议？", "expect": ""}
+{"id": 15, "category": "out_scope", "question": "今天有什么新闻？", "expect": ""}
+{"id": 16, "category": "out_scope", "question": "帮我订一张去上海的高铁票", "expect": ""}
+{"id": 17, "category": "format", "question": "怎么创建一条新笔记？", "expect": "创建"}
+{"id": 18, "category": "format", "question": "怎么搜索笔记内容？", "expect": "搜索"}
+{"id": 19, "category": "format", "question": "笔记里可以插入图片吗？", "expect": "图片"}
+{"id": 20, "category": "format", "question": "怎么设置笔记提醒？", "expect": "提醒"}
