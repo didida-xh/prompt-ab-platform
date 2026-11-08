@@ -246,6 +246,25 @@ def cmd_deploy(args):
         conn.close()
 
 
+def cmd_rollback(args):
+    """回滚：把线上文件切回指定旧版本，并用 sha256 校验内容一致。"""
+    conn=connect()
+    try:
+        row=get_version(conn,args.version)
+        online_file = BASE_DIR / "online" / "current_prompt.txt"
+        if not online_file.exists():
+            raise SystemExit("线上文件不存在，请先 deploy 一次") 
+        online_file.write_text(row["full_text"], encoding="utf-8")
+        # 回读校验：把写进去的内容重新读出来算指纹，和档案比对
+        written = online_file.read_text(encoding="utf-8")
+        if sha256_text(written) != row["sha256"]:
+            raise SystemExit("回滚校验失败：线上内容与版本库指纹不一致！")
+        set_meta(conn, "current_version", args.version)
+        conn.commit()
+        print(f"已回滚到 v{args.version}({row['name']}），指纹校验通过")
+    finally:
+        conn.close()
+
 def main():
     parser = argparse.ArgumentParser(description="提示词版本库 CLI")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -277,6 +296,10 @@ def main():
     p_deploy.add_argument("version", type=int, help="要发布的版本号")
     p_deploy.set_defaults(func=cmd_deploy)
 
+    p_rollback = sub.add_parser("rollback", help="回滚到指定旧版本")
+    p_rollback.add_argument("version", type=int, help="要回滚到的版本号")
+    p_rollback.set_defaults(func=cmd_rollback)
+    
     args = parser.parse_args()
     args.func(args)
 
